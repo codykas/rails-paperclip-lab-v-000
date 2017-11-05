@@ -1,4 +1,6 @@
-<%= form_for @song  do |f| %>
+<%= form_for @song, html: { multipart: true }  do |f| %>
+  <%= f.label :album_cover %>
+  <%= f.file_field :album_cover %>
   <%= f.label :title %>
   <%= f.text_field :title %><br>
   <%= f.label :artist_name %>
