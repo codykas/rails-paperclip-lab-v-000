@@ -570,3 +570,25 @@ Completed 200 OK in 263ms (Views: 240.2ms | ActiveRecord: 0.5ms)
 
 Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 74.68.121.253 at 2017-11-05 22:02:07 +0000
 Cannot render console from 74.68.121.253! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started POST "/songs" for 74.68.121.253 at 2017-11-05 22:02:18 +0000
+Cannot render console from 74.68.121.253! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mUMOF83s++yGMfz7hfQahFpWkAdpoMOijA8SXwhGU0drzB04CF+PSNQtkyswIXjfeH3YuC9Tl6fEa/3YAM3GtQ==", "song"=>{"title"=>"umbrella", "artist_name"=>"rihanna"}, "commit"=>"Create Song"}
+  [1m[35mArtist Load (0.3ms)[0m  SELECT  "artists".* FROM "artists" WHERE "artists"."name" = ? LIMIT 1  [["name", "rihanna"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "artists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "rihanna"], ["created_at", "2017-11-05 22:02:18.166678"], ["updated_at", "2017-11-05 22:02:18.166678"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "songs" ("title", "artist_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "umbrella"], ["artist_id", 3], ["created_at", "2017-11-05 22:02:18.173631"], ["updated_at", "2017-11-05 22:02:18.173631"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+Redirected to http://67.205.165.109:42848/songs/3
+Completed 302 Found in 29ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/songs/3" for 74.68.121.253 at 2017-11-05 22:02:18 +0000
+Cannot render console from 74.68.121.253! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SongsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT  "songs".* FROM "songs" WHERE "songs"."id" = ? LIMIT 1[0m  [["id", 3]]
